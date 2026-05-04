@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 import pandas as pd
 from catboost import CatBoostClassifier
 from flask_cors import CORS
@@ -117,6 +117,6 @@ def predict():
         return jsonify({"error": str(e)}), 500
 @app.route('/')
 def home():
-    return "Flask API is running 🚀"
+    return render_template('index.html')
 if __name__ == '__main__':
     app.run(debug=True)
