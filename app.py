@@ -115,6 +115,8 @@ def predict():
     except Exception as e:
         print("Error:", e)
         return jsonify({"error": str(e)}), 500
-
+@app.route('/')
+def home():
+    return "Flask API is running 🚀"
 if __name__ == '__main__':
     app.run(debug=True)
