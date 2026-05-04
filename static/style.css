@@ -1,0 +1,334 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+#home{
+    padding: 20px;
+justify-content: center;
+}
+
+.navbar{
+    background-color: rgb(53, 43, 43);
+    text-decoration: none;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Space between logo/heading and links */
+    padding: 5px 20px; /* Add horizontal padding */
+    list-style: none;
+}
+
+/* Add a container for logo and heading */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    align-items: flex-start;
+    justify-content: center;
+    padding-right: 20px; /* Space between logo and heading */
+}
+
+.main-head{
+    margin: 0; /* Remove default margin */
+    color: aliceblue; /* Set heading color */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li{
+    color: aliceblue;
+    text-decoration: none;
+    
+    padding-left: 20px; /* Space between links */
+}
+.nav-links >a{
+    color:skyblue;
+    
+}
+
+.nav-links >a >li:hover{
+    color:rgb(235, 200, 87);
+    
+}
+
+
+/* ... (Rest of your CSS remains the same) ... */
+
+.ipform{
+    background-color: rgb(82, 165, 82);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+}
+#getstart{
+    background-color: olivedrab;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 40px 40px;
+    font-size: 20px;
+    color: white;
+    border-top-left-radius: 0px;
+
+
+}
+.head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    padding: 20px;
+    /* background-color: #ffffff; */
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(236, 212, 104));
+
+}
+
+.right img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.left h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+#para{
+    text-align: left;
+    padding: 0px 40px;
+    font-size: 1.2em;
+}
+
+@media (max-width: 600px) {
+    .head {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .right {
+        grid-row: 1;
+    }
+
+    .left {
+        grid-row: 2;
+    }
+
+    .left h2 {
+        font-size: 1.5em;
+    }
+}
+
+input[type='text'] {
+    margin: 20px;
+    padding: 10px;
+    width: 30%;
+    border-radius: 6px;
+}
+
+#title{
+    font-size: 3em;
+    padding: 40px;
+    text-align: start;
+}
+#getstart:hover{
+    cursor: pointer;
+  
+}
+#recom{
+    color: rgb(194, 141, 27);
+}
+
+#fert{
+    color: rgb(61, 29, 11);
+}
+
+#prediction-results {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #1e5e45;
+}
+
+#result-text {
+    font-size: 1.2em;
+    margin: 10px;
+    background-color: rgb(240, 186, 106);
+    padding: 20px;
+    border-left: 8px solid white;
+    margin-right: 10px;
+}
+
+.plot-image {
+    box-shadow: 5px 4px 15px #214927;
+    max-width: 400px;
+    margin: 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.ipform {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #5baa6c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#about{
+    /* background-color: rgb(147, 252, 243); */
+    background-image: linear-gradient(rgb(190, 243, 245), rgb(83, 224, 158));
+    
+    padding: 50px;
+    line-height: 1.5;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin:20px;
+    border-radius: 5px;
+    padding-top: 70px;
+    
+}
+.form-container{
+    background-image: url('agri.jpg');
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* width: 100%; */
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.form-head{
+    color:rgb(5, 66, 33);
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.ipform input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    
+}
+
+.bg-form-image{
+    background-image: url('agri.jpg');
+}
+
+.ipform input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 15px;
+    background-color: #f8b256;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left:20px;
+    transition: background-color 0.3s ease;
+}
+
+#btn:hover {
+    background-color: #218838;
+}
+.navbar{
+    position: sticky;
+    top: 0px;
+}
+
+@media (max-width: 600px) {
+    .ipform {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        margin-right: 15px;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
+#abouttitle{
+    color: green;
+}
+#aboutsubtitle{
+    color: rgb(172, 114, 6);
+}
+#loading {
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.dot-wave {
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 5px;
+    animation: wave 1.5s linear infinite;
+}
+
+.dot:nth-child(1) {
+    background-color: #3498db;
+    animation-delay: 0.1s;
+}
+
+.dot:nth-child(2) {
+    background-color: #e74c3c;
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    background-color: #2ecc71;
+    animation-delay: 0.3s;
+}
+
+.dot:nth-child(4) {
+    background-color: #f39c12;
+    animation-delay: 0.4s;
+}
+
+.dot:nth-child(5) {
+    background-color: #9b59b6;
+    animation-delay: 0.5s;
+}
+
+@keyframes wave {
+    0%, 40%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+}

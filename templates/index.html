@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Nutrient Analysis</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/static/plant.png" id="logo">
+            <h3 class="main-head">NutrientNavigator</h3>
+        </div>
+        <ul class="nav-links">
+            <a href="#home">
+                <li>
+                    <h3>Home</h3>
+                </li>
+            </a>
+            <a href="#about">
+                <li>
+                    <h3>About</h3>
+                </li>
+            </a>
+            <a href="#prediction">
+                <li>
+                    <h3>Results</h3>
+                </li>
+            </a>
+
+        </ul>
+    </nav>
+    <section id="home">
+        <div class="head">
+            <div class="right">
+                <br><br>
+                <img src="/static/plantresults.png">
+            </div>
+            <div class="left">
+                <h2 id="title"><span id="fert">Soil Nutrient Analysis</span> & <span id="recom">Fertilizer
+                        Recommendation</span></h2>
+                <p id="para">Optimize your crop yields with our Soil Nutrient Analysis & Fertilizer Recommendation tool.
+                    Input your soil data, and we'll provide personalized fertilizer recommendations for healthier, more
+                    productive crops.</p>
+                <a href="#inputform"><button id="getstart">Get Started</button></a> <br><br>
+            </div>
+
+        </div>
+    </section>
+    <section id="about">
+        <h2>About <span id="abouttitle">NutrientNavigator</span></h2>
+        <p>NutrientNavigator is a web-based tool designed to help farmers and gardeners optimize their crop yields by
+            providing personalized fertilizer recommendations based on soil analysis.</p>
+
+        <h3><span id="aboutsubtitle">How It Works</span></h3>
+        <p>Using NutrientNavigator is simple! Here's how it helps you grow healthier crops:</p>
+
+        <ol>
+            <li><strong>Tell Us About Your Soil:</strong> You start by entering details about your soil, like the levels
+                of important nutrients, its pH, and information about your local climate.</li>
+            <li><strong>We Analyze Your Data:</strong> Our system takes your soil information and compares it to a vast
+                database of successful growing practices.</li>
+            <li><strong>Get Your Personalized Recommendations:</strong> We then give you clear, easy-to-follow advice on
+                what type and how much fertilizer to use for your specific needs.</li>
+            <li><strong>See Your Results Visually:</strong> We also show you charts and graphs that help you understand
+                your soil's health and the recommended fertilizer plan.</li>
+        </ol>
+
+        <h3><span id="aboutsubtitle">Benefits</span></h3>
+        <ul>
+            <li>Grow bigger, healthier crops</li>
+            <li>Use only the fertilizer you need, saving money and reducing waste</li>
+            <li>Improve your soil for long-term health</li>
+            <li>Make smart decisions about your farm or garden</li>
+        </ul>
+
+    </section>
+
+    <section id="inputform">
+        <div class="form-container">
+            <div class="bg-form-image"></div>
+            <br><br><br>
+            <div class="form-head">
+                <h1>Input Your Soil Data</h1>
+            </div>
+            <div class="ipform">
+
+                <input type="text" id="temperature" placeholder="Temperature">
+                <input type="text" id="moisture" placeholder="Moisture">
+                <input type="text" id="rainfall" placeholder="Rainfall">
+                <input type="text" id="ph" placeholder="pH Level">
+                <input type="text" id="nitrogen" placeholder="Nitrogen">
+                <input type="text" id="phosphorous" placeholder="Phosphorous">
+                <input type="text" id="potassium" placeholder="Potassium">
+                <input type="text" id="carbon" placeholder="Carbon">
+                <input type="text" id="soil" placeholder="Soil Type ">
+                <input type="text" id="crop" placeholder="Crop Type">
+                <button onclick="predictFertilizer()" id="btn">Predict Fertilizer</button>
+            </div>
+        </div>
+
+    </section>
+    <div id="loading" style="display: none;">
+        <div class="dot-wave">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <section id="prediction">
+        <div id="prediction-results">
+            <p id="result-text"></p>
+            <img id="barPlot" class="plot-image">
+            <img id="piePlot" class="plot-image">
+            <img id="linePlot" class="plot-image">
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const getStartedBtn = document.getElementById('getstart');
+            const inputForm = document.getElementById('inputform');
+            const predictBtn = document.getElementById('btn');
+            const loadingDiv = document.getElementById('loading');
+            const resultsDiv = document.getElementById('prediction-results');
+            const resultText = document.getElementById('result-text');
+
+            getStartedBtn.addEventListener('click', function () {
+                inputForm.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+
+            predictBtn.addEventListener('click', function () {
+                loadingDiv.style.display = 'block';
+                resultsDiv.style.display = 'none';
+                predictFertilizer();
+                setTimeout(function () {
+                    loadingDiv.style.display = 'none';
+                    resultsDiv.style.display = 'block';
+                }, 2000);
+            });
+        });
+
+
+        function predictFertilizer() {
+            let data = {
+                "Temperature": parseFloat(document.getElementById("temperature").value) || 0,
+                "Moisture": parseFloat(document.getElementById("moisture").value) || 0,
+                "Rainfall": parseFloat(document.getElementById("rainfall").value) || 0,
+                "PH": parseFloat(document.getElementById("ph").value) || 0,
+                "Nitrogen": parseFloat(document.getElementById("nitrogen").value) || 0,
+                "Phosphorous": parseFloat(document.getElementById("phosphorous").value) || 0,
+                "Potassium": parseFloat(document.getElementById("potassium").value) || 0,
+                "Carbon": parseFloat(document.getElementById("carbon").value) || 0,
+                "Soil": parseInt(document.getElementById("soil").value) || 1,
+                "Crop": parseInt(document.getElementById("crop").value) || 1
+            };
+
+            console.log("Sending Data:", data);
+
+            fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("API Response:", data);
+                    if (data["BarPlot"] && data["PiePlot"] && data["LinePlot"]) {
+                        document.getElementById("barPlot").src = "data:image/png;base64," + data["BarPlot"];
+                        document.getElementById("piePlot").src = "data:image/png;base64," + data["PiePlot"];
+                        document.getElementById("linePlot").src = "data:image/png;base64," + data["LinePlot"];
+                    }
+                    if (data["Recommended Fertilizer"] && data["Remark"]) {
+                        document.getElementById("result-text").innerHTML = `
+                        <strong>Recommended Fertilizer:</strong> ${data["Recommended Fertilizer"]}<br>
+                        <strong>Remark:</strong> ${data["Remark"]}
+            `;
+                    }
+
+                    else {
+                        document.getElementById("result-text").innerText = "Error: No recommendation received!";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("result-text").innerText = "Error: " + error;
+                });
+        }
+
+
+    </script>
+</body>
+
+</html>
