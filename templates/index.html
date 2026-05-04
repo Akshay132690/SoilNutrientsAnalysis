@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar-left">
-            <img src="/static/plant.png" id="logo">
+            <img src="{{ url_for('static', filename='plant.png') }}" id="logo">
             <h3 class="main-head">NutrientNavigator</h3>
         </div>
         <ul class="nav-links">
@@ -40,7 +40,7 @@
         <div class="head">
             <div class="right">
                 <br><br>
-                <img src="/static/plantresults.png">
+                <img src="{{ url_for('static', filename='plantresults.png') }}">
             </div>
             <div class="left">
                 <h2 id="title"><span id="fert">Soil Nutrient Analysis</span> & <span id="recom">Fertilizer
