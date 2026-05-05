@@ -17,6 +17,10 @@
             <img src="{{ url_for('static', filename='plant.png') }}" id="logo">
             <h3 class="main-head">NutrientNavigator</h3>
         </div>
+        <!-- TOGGLE BUTTON -->
+        <div class="menu-toggle" id="menu-toggle">
+            ☰
+        </div>
         <ul class="nav-links">
             <a href="#home">
                 <li>
@@ -89,18 +93,62 @@
             <div class="form-head">
                 <h1>Input Your Soil Data</h1>
             </div>
+            <!-- REPLACE ONLY INPUT SECTION -->
+
             <div class="ipform">
 
-                <input type="text" id="temperature" placeholder="Temperature">
-                <input type="text" id="moisture" placeholder="Moisture">
-                <input type="text" id="rainfall" placeholder="Rainfall">
-                <input type="text" id="ph" placeholder="pH Level">
-                <input type="text" id="nitrogen" placeholder="Nitrogen">
-                <input type="text" id="phosphorous" placeholder="Phosphorous">
-                <input type="text" id="potassium" placeholder="Potassium">
-                <input type="text" id="carbon" placeholder="Carbon">
-                <input type="text" id="soil" placeholder="Soil Type ">
+                <!-- TEMPERATURE -->
+                <div class="input-group">
+                    <input type="text" id="temperature" placeholder="Temperature">
+                    <div class="suggestions" id="temperature-sug"></div>
+                </div>
+
+                <!-- MOISTURE -->
+                <div class="input-group">
+                    <input type="text" id="moisture" placeholder="Moisture">
+                    <div class="suggestions" id="moisture-sug"></div>
+                </div>
+
+                <!-- RAINFALL -->
+                <div class="input-group">
+                    <input type="text" id="rainfall" placeholder="Rainfall">
+                    <div class="suggestions" id="rainfall-sug"></div>
+                </div>
+
+                <!-- PH -->
+                <div class="input-group">
+                    <input type="text" id="ph" placeholder="pH Level">
+                    <div class="suggestions" id="ph-sug"></div>
+                </div>
+
+                <!-- N -->
+                <div class="input-group">
+                    <input type="text" id="nitrogen" placeholder="Nitrogen">
+                    <div class="suggestions" id="nitrogen-sug"></div>
+                </div>
+
+                <!-- P -->
+                <div class="input-group">
+                    <input type="text" id="phosphorous" placeholder="Phosphorous">
+                    <div class="suggestions" id="phosphorous-sug"></div>
+                </div>
+
+                <!-- K -->
+                <div class="input-group">
+                    <input type="text" id="potassium" placeholder="Potassium">
+                    <div class="suggestions" id="potassium-sug"></div>
+                </div>
+
+                <!-- CARBON -->
+                <div class="input-group">
+                    <input type="text" id="carbon" placeholder="Carbon">
+                    <div class="suggestions" id="carbon-sug"></div>
+                </div>
+
+                <!-- KEEP SAME -->
+                <input type="text" id="soil" placeholder="Soil Type">
                 <input type="text" id="crop" placeholder="Crop Type">
+
                 <button onclick="predictFertilizer()" id="btn">Predict Fertilizer</button>
             </div>
         </div>
@@ -132,7 +180,73 @@
             const loadingDiv = document.getElementById('loading');
             const resultsDiv = document.getElementById('prediction-results');
             const resultText = document.getElementById('result-text');
+            const toggleBtn = document.getElementById("menu-toggle");
+            const navLinks = document.getElementById("nav-links");
 
+            // DATASET BASED (from your dataset)
+            const suggestionsData = {
+                temperature: [22, 24, 26],
+                moisture: [0.7, 0.75, 0.8],
+                rainfall: [200, 250, 300],
+                ph: [6.0, 6.5, 7.0],
+                nitrogen: [70, 75, 80],
+                phosphorous: [50, 100, 150],
+                potassium: [60, 90, 120],
+                carbon: [0.5, 1.5, 2.5]
+            };
+
+            // GENERIC FUNCTION
+            function showSuggestions(inputId, sugId, values) {
+                const box = document.getElementById(sugId);
+                box.innerHTML = "";
+
+                values.forEach(val => {
+                    let chip = document.createElement("span");
+                    chip.innerText = val;
+
+                    chip.onclick = () => {
+                        document.getElementById(inputId).value = val;
+                    };
+
+                    box.appendChild(chip);
+                });
+            }
+
+            // ATTACH EVENTS
+            document.getElementById("temperature").addEventListener("focus", () => {
+                showSuggestions("temperature", "temperature-sug", suggestionsData.temperature);
+            });
+
+            document.getElementById("moisture").addEventListener("focus", () => {
+                showSuggestions("moisture", "moisture-sug", suggestionsData.moisture);
+            });
+
+            document.getElementById("rainfall").addEventListener("focus", () => {
+                showSuggestions("rainfall", "rainfall-sug", suggestionsData.rainfall);
+            });
+
+            document.getElementById("ph").addEventListener("focus", () => {
+                showSuggestions("ph", "ph-sug", suggestionsData.ph);
+            });
+
+            document.getElementById("nitrogen").addEventListener("focus", () => {
+                showSuggestions("nitrogen", "nitrogen-sug", suggestionsData.nitrogen);
+            });
+
+            document.getElementById("phosphorous").addEventListener("focus", () => {
+                showSuggestions("phosphorous", "phosphorous-sug", suggestionsData.phosphorous);
+            });
+
+            document.getElementById("potassium").addEventListener("focus", () => {
+                showSuggestions("potassium", "potassium-sug", suggestionsData.potassium);
+            });
+
+            document.getElementById("carbon").addEventListener("focus", () => {
+                showSuggestions("carbon", "carbon-sug", suggestionsData.carbon);
+            });
+            toggleBtn.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
             getStartedBtn.addEventListener('click', function () {
                 inputForm.scrollIntoView({
                     behavior: 'smooth'
