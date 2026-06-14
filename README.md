@@ -1,7 +1,8 @@
-# SoilNutrientAnalysis
+# SoilNutrientAnalysis            [![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://nutrientnavigator.onrender.com/)
+
 
 🌿 NutrientNavigator
-NutrientNavigator is a web application designed to help farmers and gardeners optimize crop yields and promote healthier soil. By providing personalized fertilizer recommendations based on detailed soil analysis, it addresses the critical challenge of efficient fertilizer management.
+NutrientNavigator is a web application designed to help farmers and gardeners optimize crop yields and promote healthier soil. By providing personalized fertilizer recommendations based on detailed soil analysis, it addresses the critical challenge of efficient fertilizer management. 
 
 <p align="center">
   <img src="/Screenshot 2025-04-01 163140.png" width="900">
@@ -23,6 +24,10 @@ Soil type
 
 Crop type
 
+<p align="center">
+  <img src="/Screenshot 2025-04-01 163155.png" width="900">
+</p>
+
 ✅ Real-Time Data Processing
 User input is sent to the backend for analysis and prediction, ensuring quick, tailored results.
 
@@ -31,6 +36,11 @@ The core functionality delivers specific fertilizer recommendations tailored to 
 
 ✅ Visual Data Representation
 Dynamic bar charts, pie charts, and line graphs provide clear insights into nutrient distribution and trends.
+
+
+<p align="center">
+  <img src="/Screenshot 2025-04-01 163159.png" width="900">
+</p>
 
 🛠️ Technical Details
 
