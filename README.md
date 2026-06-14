@@ -3,6 +3,10 @@
 🌿 NutrientNavigator
 NutrientNavigator is a web application designed to help farmers and gardeners optimize crop yields and promote healthier soil. By providing personalized fertilizer recommendations based on detailed soil analysis, it addresses the critical challenge of efficient fertilizer management.
 
+<p align="center">
+  <img src="/Screenshot 2025-04-01 163140.png" width="900">
+</p>
+
 📌 Key Features
 ✅ Intuitive Input Interface
 Users can enter essential soil data, including:
@@ -29,6 +33,7 @@ The core functionality delivers specific fertilizer recommendations tailored to 
 Dynamic bar charts, pie charts, and line graphs provide clear insights into nutrient distribution and trends.
 
 🛠️ Technical Details
+
 🔹 Backend: Python Flask
 
 Handles data processing, prediction, and API communication.
